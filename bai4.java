@@ -1,20 +1,18 @@
-package PTIT_CNTT1_IT203A_Session01;
-
 import java.util.Scanner;
 
-public class session01_bai4 {
+public class Bai4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int id;
 
-        System.out.print("Nhập giá sách (USD): ");
-        double price = sc.nextDouble();
-        System.out.print("Nhập tỉ giá (VNĐ/USD): ");
-        float exchangeMoney = sc.nextFloat();
+        do {
+            System.out.print("Nhập mã ID sách mới (số dương): ");
+            id = sc.nextInt();
+            if (id <= 0) {
+                System.out.println("Mã không hợp lệ, hãy nhập lại!");
+            }
+        } while (id <= 0);
 
-        double totalVND = price * exchangeMoney;
-
-        long rounded = (long) totalVND;
-
-        System.out.println("Giá làm tròn: " + rounded + " VNĐ");
+        System.out.println("Lưu mã sách thành công: " + id);
     }
 }
