@@ -1,24 +1,35 @@
-package PTIT_CNTT1_IT203A_Session01;
-
 import java.util.Scanner;
 
-public class session01_bai5 {
+public class Bai5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int diemUyTin = 100;
+        int ngayTre;
 
-        System.out.print("Nhập mã sách (4 chữ số): ");
-        int code = sc.nextInt();
+        System.out.println("--- Nhập lịch sử trả sách (Nhập 999 để kết thúc) ---");
+        while (true) {
+            System.out.print("Nhập số ngày trễ: ");
+            ngayTre = sc.nextInt();
 
-        int thousands = code / 1000;
-        int hundreds = (code / 100) % 10;
-        int dozens = (code / 10) % 10;
-        int units = code % 10;
+            if (ngayTre == 999) break;
 
-        int sumOfFirstThreeNumber = thousands + hundreds + dozens;
-        boolean isValid = (sumOfFirstThreeNumber % 10) == units;
+            if (ngayTre <= 0) {
+                diemUyTin += 5;
+                System.out.println("Trả đúng hạn: +5 điểm");
+            } else {
+                diemUyTin -= (ngayTre * 2);
+                System.out.println("Trả muộn " + ngayTre + " ngày: -" + (ngayTre * 2) + " điểm");
+            }
+        }
 
-        System.out.println("Chữ số kiểm tra kỳ vọng: " + sumOfFirstThreeNumber);
-        System.out.print("Kết quả kiểm tra mã sách: ");
-        System.out.println(isValid ? "Hợp lệ" : "Sai mã");
+        System.out.println("\nTổng điểm uy tín cuối cùng: " + diemUyTin);
+        System.out.print("Xếp loại: ");
+        if (diemUyTin > 120) {
+            System.out.println("Độc giả Thân thiết");
+        } else if (diemUyTin >= 80) {
+            System.out.println("Độc giả Tiêu chuẩn");
+        } else {
+            System.out.println("Độc giả cần lưu ý");
+        }
     }
 }
