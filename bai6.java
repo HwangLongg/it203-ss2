@@ -1,22 +1,39 @@
-package PTIT_CNTT1_IT203A_Session01;
-
 import java.util.Scanner;
 
-public class session01_bai6 {
+public class Bai6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        int tongMuon = 0;
+        int soNgayMoCua = 0;
 
-        System.out.print("Nhập số thứ tự của sách trong hệ thống: ");
-        int number = sc.nextInt();
+        for (int i = 2; i <= 8; i++) {
+            String tenNgay = (i == 8) ? "Chủ Nhật" : "Thứ " + i;
+            System.out.print("Nhập số lượt mượn " + tenNgay + ": ");
+            int luotMuon = sc.nextInt();
 
-        int bookShelf = (number - 1)/25 + 1;
-        int position = (number - 1) % 25 + 1;
-        String area = (bookShelf <= 10) ? "Khu cận (gần cửa)" : "Khu viễn";
+            if (luotMuon == 0) {
+                continue; // Thư viện đóng cửa, không tính vào thống kê
+            }
 
-        System.out.println();
-        System.out.println("--- THÔNG TIN ĐỊNH VỊ ---");
-        System.out.println("Sách số: " + number);
-        System.out.println("Địa chỉ: Kệ " + bookShelf + " - Vị trí " + position);
-        System.out.println("Phân khu: " + area);
+            // Tìm Max, Min
+            if (luotMuon > max) max = luotMuon;
+            if (luotMuon < min) min = luotMuon;
+
+            // Tích lũy để tính trung bình
+            tongMuon += luotMuon;
+            soNgayMoCua++;
+        }
+
+        if (soNgayMoCua > 0) {
+            double trungBinh = (double) tongMuon / soNgayMoCua;
+            System.out.println("\n--- Kết quả thống kê ---");
+            System.out.println("Lượt mượn cao nhất: " + max);
+            System.out.println("Lượt mượn thấp nhất: " + min);
+            System.out.printf("Trung bình lượt mượn (trong %d ngày mở cửa): %.2f\n", soNgayMoCua, trungBinh);
+        } else {
+            System.out.println("Thư viện đóng cửa cả tuần, không có dữ liệu thống kê.");
+        }
     }
 }
