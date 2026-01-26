@@ -1,32 +1,20 @@
-package PTIT_CNTT1_IT203A_Session01;
+import java.util.Scanner;
 
-public class session01_bai3 {
+public class Bai3 {
     public static void main(String[] args) {
-        String book1= "Java Basic";
-        String book2 = "Python Intro";
-        System.out.println("Trước khi hoán đổi: Book1 = " + book1 + ", Book2 = " + book2);
+        Scanner sc = new Scanner(System.in);
+        long donGia = 5000;
+        long total = 0;
 
-        String temp = book1;
-        book1 = book2;
-        book2 = temp;
+        System.out.print("Nhập số lượng sách trả muộn: ");
+        int n = sc.nextInt();
 
-        System.out.println("Sau khi hoán đổi: Book1 = " + book1 + ", Book2 = " + book2);
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Nhập số ngày trễ của cuốn thứ " + i + ": ");
+            int soNgayTre = sc.nextInt();
+            total += (long) soNgayTre * donGia;
+        }
+
+        System.out.println("Tổng số tiền phạt cuối cùng: " + total + " VNĐ");
     }
 }
-//    Giải thích bộ nhớ:
-//
-//        - Các chuỗi "Java Basic" và "Python Intro" được lưu trong Heap
-//        - book1, book2, temp là biến tham chiếu nằm trên Stack
-//
-//    Ban đầu:
-//        book1 -> "Java Basic"
-//        book2 -> "Python Intro"
-//
-//        Khi gán temp = book1: => temp -> "Java Basic"
-//
-//        Sau khi hoán đổi:
-//         book1 -> "Python Intro"
-//         book2 -> "Java Basic"
-//
-//        Nội dung String trong Heap KHÔNG đổi,
-//        chỉ có các biến trên Stack đổi hướng tham chiếu
