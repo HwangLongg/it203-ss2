@@ -1,20 +1,14 @@
-import java.util.Scanner;
+package baii3;
 
-public class Bai3 {
+public class bai3 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        long donGia = 5000;
-        long total = 0;
+        User user1 = new User("mypassword");
+        User user2 = new User("");
 
-        System.out.print("Nhập số lượng sách trả muộn: ");
-        int n = sc.nextInt();
+        System.out.println("User1 authenticated: " + user1.isAuthenticated()); // true
+        System.out.println("User2 authenticated: " + user2.isAuthenticated()); // false
 
-        for (int i = 1; i <= n; i++) {
-            System.out.print("Nhập số ngày trễ của cuốn thứ " + i + ": ");
-            int soNgayTre = sc.nextInt();
-            total += (long) soNgayTre * donGia;
-        }
-
-        System.out.println("Tổng số tiền phạt cuối cùng: " + total + " VNĐ");
+        String encrypted = Authenticatable.encrypt("mypassword");
+        System.out.println("Encrypted password: " + encrypted);
     }
 }
