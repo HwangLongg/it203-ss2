@@ -20,7 +20,7 @@ class UserUtils {
     }
 }
 
-public class Bai6 {
+public class bai6 {
     public static void main(String[] args) {
         UserProcessor processor = UserUtils::convertToUpperCase;
         User2 user2 = new User2("Việt");
