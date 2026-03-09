@@ -16,7 +16,7 @@ class User {
     }
 }
 
-public class Bai4 {
+public class bai4 {
     public static void main(String[] args) {
         List<User> users = Arrays.asList(
                 new User("Tiến"),
