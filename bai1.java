@@ -1,23 +1,15 @@
-import java.util.Scanner;
+1. Kiểm tra xem một User có phải là Admin hay không
+→ Predicate<User>
+Lý do: Predicate dùng để kiểm tra điều kiện và trả về boolean (true/false).
 
-public class Bai1 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+2. Chuyển đổi User thành chuỗi username
+→ Function<User, String>
+Lý do: Function dùng để chuyển đổi một kiểu dữ liệu sang kiểu khác.
 
-        System.out.print("Nhập tuổi của bạn: ");
-        int tuoi = sc.nextInt();
-        System.out.print("Nhập số sách đang giữ: ");
-        int soSach = sc.nextInt();
+3. In thông tin User ra Console
+→ Consumer<User>
+Lý do: Consumer dùng để thực hiện hành động với dữ liệu nhưng không trả về giá trị.
 
-        if (tuoi >= 18 && soSach < 3) {
-            System.out.println("Cho phép mượn sách");
-        } else {
-            if (tuoi < 18) {
-                System.out.println("Lý do: Bạn chưa đủ tuổi (phải từ 18 tuổi)");
-            }
-            if (soSach >= 3) {
-                System.out.println("Lý do: Bạn đã mượn quá số lượng cho phép (tối đa 2 cuốn)");
-            }
-        }
-    }
-}
+4. Khởi tạo User mới với giá trị mặc định
+→ Supplier<User>
+Lý do: Supplier dùng để tạo và cung cấp một đối tượng mà không cần tham số đầu vào.
